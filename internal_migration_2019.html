@@ -1,0 +1,173 @@
+    <!DOCTYPE html>
+    <html style="height: 100%">
+        <head>
+            <meta charset="utf-8">
+            <style>
+                #chartContainer {width: 840px; margin: auto; margin-top: 50px; }
+                #chartContainer p {margin-left: 60px; margin-bottom: 10px; margin-top: 0; padding: 0;}
+                #charttitle {text-align:center; font: bold 30px  Times, sans-serif;}
+                #chartsubhead{font:  18px  Times, sans-serif;}                  
+            </style>
+        </head>
+
+
+
+        <body>
+            <div id="chartContainer">
+                <p id="charttitle">Internal Migration in the UK in 2019</p>
+                <p id="chartsubhead">The chart shows the migration flows between four different countries of UK in 2019. </p> 
+                <p id="chartsubhead"> In this project, we only analyze the internal migration which can be defined as residential moves to and from other areas within the country.</p>
+                <p id="chartsubhead">International migration are not included.</p> 
+            </div>                   
+            <div id="container" style="height: 500%"></div>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+            <script type="text/javascript">
+
+
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    var option;
+
+
+    option = {
+        backgroundColor: '#FFFFFF',
+        series: [ //data
+            {
+                type: 'sankey',
+                left: 400.0,
+                top: 20.0,
+                right: 400.0,
+                bottom: 25.0,
+                data: [  //node
+                    {
+                        name: 'England',
+                        'itemStyle': {
+                            'color': '#FF7F50',
+                            'borderColor': '#FF7F50'
+                        }
+                    }, {
+                        name: 'England ',
+                        'itemStyle': {
+                            'color': '#FF7F50',
+                            'borderColor': '#FF7F50'
+                        }
+                    }, {
+                        name: 'Northern Ireland',  
+                        'itemStyle': {
+                            'color': '#D13438',
+                            'borderColor': '#D13438'
+                        }
+                    }, {
+                        name: 'Northern Ireland ',  
+                        'itemStyle': {
+                            'color': '#D13438',
+                            'borderColor': '#D13438'
+                        }
+                    }, {
+                        name: 'Scotland',
+                        'itemStyle': {
+                            'color': '#0000CD',   
+                            'borderColor': '#0000CD'
+                        }
+                    }, {
+                        name: 'Scotland ',
+                        'itemStyle': {
+                            'color': '#0000CD',   
+                            'borderColor': '#0000CD'
+                        }
+                    },{
+                        name: 'Wales',
+                        'itemStyle': {
+                            'color': '#269A26',   
+                            'borderColor': '#269A26'
+                        }
+                    },{
+                        name: 'Wales ',
+                        'itemStyle': {
+                            'color': '#269A26',
+                            'borderColor': '#269A26'
+                        }
+
+                    }
+            
+                ],
+                links: [  //flows
+                {
+                source: 'England',
+                target: 'Northern Ireland ',
+                value: 9060
+            }, 
+            {
+                source: 'England',
+                target: 'Scotland ',
+                value: 43799
+            },{
+                source: 'England',
+                target: 'Wales ',
+                value: 69383
+            }, {
+                source: 'Northern Ireland',
+                target: 'England ',
+                value: 7860
+            }, {
+                source: 'Northern Ireland',
+                target: 'Scotland ',
+                value: 2071
+            },{
+                source: 'Northern Ireland',
+                target: 'Wales ',
+                value: 362
+            },{
+                source: 'Scotland',
+                target: 'England ',
+                value: 34270
+            },{
+                source: 'Scotland',
+                target: 'Northern Ireland ',
+                value: 1920
+            },{
+                source: 'Scotland',
+                target: 'Wales ',
+                value: 1218
+            },{
+                source: 'Wales',
+                target: 'England ',
+                value: 60288
+            },{
+                source: 'Wales',
+                target: 'Northern Ireland ',
+                value: 403
+            },{
+                source: 'Wales',
+                target: 'Scotland ',
+                value: 1586
+            }
+                ],
+                lineStyle: {
+                    color: 'source',
+                    curveness: 0.5
+                },
+                itemStyle: {
+                    color: '#1f77b4',
+                    borderColor: '#1f77b4'
+                },
+                //label: {
+                //  color: 'rgba(0,0,0,0.7)',
+                //  fontFamily: 'Arial',
+                //  fontSize: 10
+                //}
+            }],
+        tooltip: {
+            trigger: 'item'
+        }
+    };
+
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+
+            </script>
+        </body>
+    </html>
+        
